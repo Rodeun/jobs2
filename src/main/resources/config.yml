@@ -1,0 +1,63 @@
+# 직업 변경 쿨타임 (시간). 2일 = 48. 처음 직업을 고를 때는 쿨타임 없음
+change-cooldown-hours: 48
+
+# 플레이어가 설치한 광물/수박/호박/사탕수수를 캐서 경험치를 얻는 것, 건축 수익 반복 방지 유지 시간(시간)
+anti-exploit-hours: 24
+
+# ===== 레벨 =====
+# 직업별로 따로 레벨이 올라갑니다. (직업을 바꿔도 그 직업의 레벨은 보존)
+level:
+  max-level: 20
+  # 다음 레벨 필요 경험치 = xp-base + xp-step * (현재레벨 - 1)
+  xp-base: 100
+  xp-step: 50
+  # 레벨 1당 메리트가 이만큼(비율) 강해집니다. 0.05 → Lv.20 에서 약 1.95배
+  merit-scale-per-level: 0.05
+
+# 자기 직업 활동 1회당 직업 경험치
+xp:
+  farmer-crop: 2
+  miner-ore: 3
+  fisher-catch: 6
+  hunter-kill: 4
+  builder-place: 1
+
+# ===== 건축가 수익 (돈.sk 연동) =====
+economy:
+  enabled: true
+  # 다이아 48개 = 25,000원 → 다이아 1개 ≈ 520.83원
+  diamond-count: 48
+  diamond-price: 25000
+  # 블록 1개의 가치 (다이아 단위). 0.01 = 블록 100개가 다이아 1개 가치 (≈5.2원/개)
+  block-diamonds: 0.01
+  # 고급 블록 (이름에 아래 단어가 들어가면 적용)
+  premium-block-diamonds: 0.02
+  premium-keywords: [GLASS, CONCRETE, TERRACOTTA, BRICK, QUARTZ, PRISMARINE, PURPUR, TILES, POLISHED]
+  # 수익 없는 블록 (이름에 아래 단어가 들어가면 제외)
+  no-pay-keywords: [DIAMOND_BLOCK, EMERALD_BLOCK, NETHERITE_BLOCK, GOLD_BLOCK, IRON_BLOCK, LAPIS_BLOCK, REDSTONE_BLOCK, COPPER_BLOCK, _ORE, ANCIENT_DEBRIS, SPAWNER, BEACON, TNT, SHULKER, CHEST, BARREL, FURNACE, HOPPER, DISPENSER, DROPPER]
+  # 하루 최대 수익 (원, 레벨 보너스 포함)
+  daily-cap: 30000
+  # 모인 수익을 정산하는 주기 (초)
+  payout-interval-seconds: 30
+  # 정산 때 콘솔에서 실행하는 명령어. 돈.sk 에 '정산' 추가 후 사용
+  # 돈.sk 를 수정하지 않으려면: "돈 관리 지급 {player} {amount}"
+  pay-command: "돈 정산 {player} {amount}"
+
+# ===== 메리트 (레벨 1 기준 수치) =====
+merit:
+  farmer-crop-bonus-chance: 0.5
+  miner-ore-bonus-chance: 0.4
+  miner-night-vision: true
+  fisher-bonus-chance: 0.35
+  fisher-bonus-exp: 3
+  fisher-dolphins-grace: true
+  hunter-drop-bonus-chance: 0.4
+  hunter-damage-multiplier: 1.25
+
+# ===== 디메리트 (남의 직업 활동, 직업 없는 사람은 제외) =====
+penalty:
+  farmer-crop-loss-chance: 0.35
+  miner-ore-loss-chance: 0.35
+  fisher-loss-chance: 0.4
+  combat-damage-multiplier: 0.75
+  build-exhaustion: 0.5

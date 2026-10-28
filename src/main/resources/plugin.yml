@@ -1,0 +1,15 @@
+name: JobNations
+version: 1.1.0
+main: kr.jobnations.JobNationsPlugin
+api-version: "26.1"
+description: 직업 시스템 - 농부, 광부, 어부, 사냥꾼, 건축가
+softdepend: [Skript]
+commands:
+  job:
+    description: 직업 시스템
+    usage: /job <농부|광부|어부|사냥꾼|건축가|목록|정보>
+    aliases: [직업]
+permissions:
+  jobnations.admin:
+    description: 관리자 명령어 (reload, reset)
+    default: op
